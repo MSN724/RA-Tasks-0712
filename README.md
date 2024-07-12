@@ -13,6 +13,7 @@ In this repository, I have included data processing scripts and output datasets 
 -   `README.pdf`
 -   `README.md`
 -   `Theory_Task.pdf`
+-   `Theory_Task.tex`
 
 ## Task 1: Earnings Announcements for European Firms
 
