@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Answers to Theory Task Questions}
+\author{Mason Zhang}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Question 1}
+
+Given:
+\begin{itemize}
+    \item \( e \): economic earnings
+    \item \( r \): reported earnings
+    \item \( \epsilon \): measurement error with distribution \( N(0, \frac{1}{\tau_\epsilon}) \)
+    \item \( br \): real earnings management
+    \item \( ba \): accrual earnings management
+    \item \( \mu \): prior mean of \( e \)
+    \item \( \tau \): precision of prior belief about \( e \)
+\end{itemize}
+
+The reported earnings \( r \) are given by:
+\[
+r = e + br + ba + \epsilon
+\]
+
+Investors form an estimate of \( e \) given \( r \). As given, conjectured manipulation amounts are \( \hat{br} \) and \( \hat{ba} \).
+
+First, substitute the conjectured values into the reported earnings equation:
+\[
+r = e + \hat{br} + \hat{ba} + \epsilon
+\]
+
+Thus:
+\[
+e = r - \hat{br} - \hat{ba} - \epsilon
+\]
+
+Given investors' prior belief about \( e \) is \( N(\mu, \frac{1}{\tau}) \) and the noise \( \epsilon \) is \( N(0, \frac{1}{\tau_\epsilon}) \), the posterior belief about \( e \) given \( r \) follows from the properties of normal distributions.
+
+The posterior distribution of \( e \), given \( r \), will be:
+\[
+EI(e|r) = \frac{\tau_\epsilon (\mu + \hat{br} + \hat{ba}) + \tau r}{\tau + \tau_\epsilon}
+\]
+
+**Why do investors need to conjecture manipulation amounts?**
+
+Investors need to conjecture \( \hat{b}_r \) and \( \hat{b}_a \) to adjust reported earnings for a better estimate of true earnings. The reported earnings \(r\) include these manipulations. Without an estimate of these amounts, investors cannot accurately infer the true economic earnings \(e\) from the observed \(r\).
+
+\subsection*{Question 2}
+
+The manager’s objective function is:
+\[
+\max_{b_r, b_a} \left\{ EI(e|r) - \frac{1}{2} \gamma_r b_r^2 - \frac{1}{2} \gamma_a b_a^2 \right\}
+\]
+
+Using the posterior belief \( EI(e|r) \):
+\[
+EI(e|r) = \frac{\tau_\epsilon (\mu + \hat{b}_r + \hat{b}_a) + \tau (e + b_r + b_a + \epsilon)}{\tau + \tau_\epsilon}
+\]
+
+The manager maximizes:
+\[
+\frac{\tau_\epsilon (\mu + \hat{b}_r + \hat{b}_a) + \tau (e + b_r + b_a + \epsilon)}{\tau + \tau_\epsilon} - \frac{1}{2} \gamma_r b_r^2 - \frac{1}{2} \gamma_a b_a^2
+\]
+
+Taking derivatives with respect to \( b_r \) and \( b_a \) and setting them to zero to find the optimal values:
+
+For \( b_r \):
+\[
+\frac{\partial}{\partial b_r} \left( \frac{\tau_\epsilon (\mu + \hat{b}_r + \hat{b}_a) + \tau (e + b_r + b_a + \epsilon)}{\tau + \tau_\epsilon} - \frac{1}{2} \gamma_r b_r^2 \right) = 0
+\]
+\[
+\frac{\tau}{\tau + \tau_\epsilon} - \gamma_r b_r = 0
+\]
+\[
+b_r = \frac{\tau}{\gamma_r (\tau + \tau_\epsilon)}
+\]
+
+For \( b_a \):
+\[
+\frac{\partial}{\partial b_a} \left( \frac{\tau_\epsilon (\mu + \hat{b}_r + \hat{b}_a) + \tau (e + b_r + b_a + \epsilon)}{\tau + \tau_\epsilon} - \frac{1}{2} \gamma_a b_a^2 \right) = 0
+\]
+\[
+\frac{\tau}{\tau + \tau_\epsilon} - \gamma_a b_a = 0
+\]
+\[
+b_a = \frac{\tau}{\gamma_a (\tau + \tau_\epsilon)}
+\]
+
+\subsection*{Question 3}
+
+Management can engage in earnings management to influence investors' perception of economic earnings. The effectiveness of this strategy depends on the costs of manipulation (\( \gamma_r \) and \( \gamma_a \)) and the precision of the measurement error (\( \tau_\epsilon \)). Since investors know the manager’s objective function and form rational expectations, persistent manipulation might be detected, reducing its effectiveness in inflating firm value. Hence, management might temporarily inflate firm value, but it is likely to be detected over time, leading to potential negative consequences.
+
+\subsection*{Question 4}
+
+If accounting regulations improve the precision of reported earnings, \( \tau_\epsilon \) increases. As \( \tau_\epsilon \rightarrow \infty \), the impact of \( \epsilon \) diminishes, and reported earnings become a more accurate reflection of economic earnings.
+
+With higher \( \tau_\epsilon \), the equilibrium levels of \( b_r \) and \( b_a \) will decrease because:
+
+\[
+b_r = \frac{\tau}{\gamma_r (\tau + \tau_\epsilon)}
+\]
+
+\[
+b_a = \frac{\tau}{\gamma_a (\tau + \tau_\epsilon)}
+\]
+
+As \( \tau_\epsilon \) increases, \( \frac{1}{\tau + \tau_\epsilon} \) decreases, leading to smaller manipulation amounts \( b_r \) and \( b_a \). Thus, improved precision reduces the level of earnings management.
+
+\end{document}
